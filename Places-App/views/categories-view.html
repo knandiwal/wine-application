@@ -2,5 +2,12 @@
     data-layout="main-layout" data-title="Categories"
     data-show="app.categories.init">
     <h1>This is the <strong>Categories</strong> View</h1>
-    <div id="categories-holder"></div>
+    <div id="categories-holder">
+        <select id="categories-list" data-role="dropdownlist"
+            data-bind="source: categories"
+            data-text-field="Name"
+            data-change="change">
+        </select>
+        <div id="category-info"></div>
+    </div>
 </div>
