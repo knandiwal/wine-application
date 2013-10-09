@@ -2,13 +2,13 @@ var app = app || {};
 
 (function(a) {
     /*function getAllPlaces(options){
-    httpRequest.getJSON("http://localhost:62354/api/" + "places")
+    httpRequest.getJSON(app.servicesBaseUrl  + "places")
     .then(function(places){
     ret
     });
     }*/
     function getAlphabetically() {
-        httpRequest.getJSON("http://localhost:62354/api/" + "places")
+        httpRequest.getJSON(app.servicesBaseUrl  + "places")
         .then(function(places) {
             viewModel.set("places", places); 
             console.log(places);
@@ -19,7 +19,7 @@ var app = app || {};
         cordovaExt.getLocation().
         then(function(location) {
             var locationString = location.coords.latitude + "," + location.coords.longitude;            
-            return httpRequest.getJSON("http://localhost:62354/api/" + "places?location=" + locationString);     
+            return httpRequest.getJSON(app.servicesBaseUrl  + "places?location=" + locationString);     
         })
         .then(function(places) {
             viewModel.set("places", places); 
