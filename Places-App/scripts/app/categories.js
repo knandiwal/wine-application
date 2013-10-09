@@ -1,30 +1,29 @@
 var app = app || {};
 
 (function(a) {
+    var viewModel = kendo.observable({
+        categories:[],
+        selectedCategory:null,
+        change:onCategoryChanged
+    });
+    
     function init(e) {
-        var dataSource = new kendo.data.DataSource({
-            data:[
-                {Name:"sample", Id:1},
-                {Name:"sample 2", Id:2}, 
-                {Name: "sample 3", Id :3}
-            ],
-            change:onCategoryChanged
-        });
-        var viewModel = kendo.observable({
-            categories:dataSource           
-        });
-        
         kendo.bind(e.view.element, viewModel);
+        
+        httpRequest.getJSON("http://localhost:62354/api/" + "categories")
+        .then(function (categories) {
+            viewModel.set("categories", categories);            
+        });        
     }
     
-    function onCategoryChanged() {
-        var categoryId = $("#categories-list").val();
-        /*httpRequest.getJSON("http://localhost:62354/api/" + "categories/"+categoryId)
-        .then(function(categoryInfo){
-        $("#category-info").html(JSON.stringify(categoryInfo)); 
+    function onCategoryChanged(e) {             
+        console.log(e.sender._selectedValue);
+        
+        httpRequest.getJSON("http://localhost:62354/api/" + "categories/" + e.sender._selectedValue)
+        .then(function(category) {
+            viewModel.set("selectedCategory", category);
+            console.log(category);
         });
-        */
-        navigator.notification.alert(categoryId);
     }
     
     a.categories = {
