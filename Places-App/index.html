@@ -16,7 +16,9 @@
         <script src="scripts/app/extensions.js"></script>
         <script src="scripts/app/wines.js"></script>
         <script src="scripts/app/stores.js"></script>
+        <script src="scripts/app/search.js"></script>
         <script src="scripts/app.js"></script>
+        <script src="scripts/app/checkConnection.js"></script>
     </head>
     <body>
         <div id="home-view" data-id="home-view" data-role="view" data-layout="main-layout" data-title="Home">
@@ -32,7 +34,7 @@
             <footer data-role="footer">
                 <div data-role="tabstrip">
                     <a href="#home-view" data-icon="home">Home</a>
-                    <a href="views/wines-view.html#listview-templates" data-icon="bookmarks">Wines</a>
+                    <a href="views/wines-view.html#wines-view" data-icon="bookmarks">Wines</a>
                     <a href="views/stores-view.html#stores-view" data-icon="organize">Stores</a>
                     <a href="views/search-view.html#search-view" data-icon="search">Search</a>
                 </div>
@@ -44,12 +46,19 @@
                 <div>
                     <h3>#:name# </h3>
                     <p>Price: #:price#$</p>
-                    <p>Type: #:type#</p>
                 </div><img src="" data-bind="attr: { src: image }" />
             </li>
         </script>
         
         <script id="store-template" type="text/x-kendo-template">
+             <li>
+                <div>
+                    <h3>#:name# </h3>
+                </div>
+            </li>
+        </script>
+        
+        <script id="serch-results-template" type="text/x-kendo-template">
              <li>
                 <div>
                     <h3>#:name# </h3>

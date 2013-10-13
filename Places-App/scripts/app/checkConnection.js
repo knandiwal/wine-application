@@ -1,4 +1,5 @@
-    function check() {
+window.checkConnection = (function() {    
+function check() {
         var networkState = navigator.network.connection.type;
 
         var states = {};

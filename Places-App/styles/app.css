@@ -33,7 +33,10 @@
     font-size: 1.1em;
 }
 
-
+#logo{
+    width:100%;
+    height:100%;
+}
 
 .km-root .km-on-android #wines-view #wines-listview li div {
     text-wrap: wrap;
@@ -70,11 +73,44 @@
     font-size: 1.1em;
 }
 
-.km-root .km-on-android #wines-view #wines-listview li, .km-root .km-on-android #stores-view #stores-listview li{
-    border-bottom: 1px solid white;
+.km-root .km-on-android #search-view #inputText{
+    width: 200px;
+    background-color: gray;
+
 }
 
-#logo{
-    width:100%;
-    height:100%;
+.km-root .km-on-android #search-view #results,
+km-on-ios #search-view #results{
+    width:300px;
+    margin-left:8px;
+ }
+
+.km-root .km-on-android #search-view #fields, 
+.km-root .km-on-android #search-view #searchButton,
+.km-on-ios #search-view #fields,
+.km-on-ios #search-view #searchButton{
+ margin-left:20px;   
+}
+
+.km-root .km-on-android #search-view h2,
+.km-on-ios #search-view h2{
+     margin-left:0;
+ }
+
+.km-on-ios #search-view #inputText{
+     width:200px;   
+}
+
+.km-on-ios #search-view #searchButton,
+.km-root .km-on-android #search-view #searchButton{
+    width: 100px;
+    height:30px;
+    text-align:center;
+    margin-top:10px;
+    padding-top:15px;
+} 
+
+
+.km-on-ios #search-view #fields{
+    
 }

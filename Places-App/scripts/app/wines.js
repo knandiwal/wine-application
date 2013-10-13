@@ -16,7 +16,13 @@ var app = app || {};
     
     function init(e) {
        kendo.bind(e.view.element, viewModel);
-       getWines();
+        if (!checkConnection.check()) {
+            navigator.notification.alert("Please connect to Internet", function() {
+            })
+        }
+        else {
+            getWines();
+        }
     }   
     
     a.wines= {
