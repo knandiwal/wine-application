@@ -6,7 +6,7 @@
         <link href="kendo/styles/kendo.common.min.css" />
         <link href="kendo/styles/kendo.default.min.css" />
         <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-        <link href="styles/app.css" />
+        <link href="styles/app.css" rel="stylesheet" />
 
         <script src="cordova.js"></script>
         <script src="kendo/js/jquery.min.js"></script>
@@ -14,14 +14,13 @@
         <script src="scripts/libs/rsvp.min.js"></script>
         <script src="scripts/app/http-request.js"></script>
         <script src="scripts/app/extensions.js"></script>
-        <script src="scripts/app/categories.js"></script>
-        <script src="scripts/app/places.js"></script>
+        <script src="scripts/app/wines.js"></script>
+        <script src="scripts/app/stores.js"></script>
         <script src="scripts/app.js"></script>
     </head>
     <body>
-        <div id="home-view" data-id="home-view" data-role="view"
-             data-layout="main-layout" data-title="Home">
-            This is Sparta!
+        <div id="home-view" data-id="home-view" data-role="view" data-layout="main-layout" data-title="Home">
+           <img id="logo" src="styles/logo.png"/>
         </div>
 
         <div data-role="layout" id="main-layout" data-id="main-layout">
@@ -33,18 +32,33 @@
             <footer data-role="footer">
                 <div data-role="tabstrip">
                     <a href="#home-view" data-icon="home">Home</a>
-                    <a href="views/categories-view.html#categories-view" data-icon="bookmarks">Categories</a>
-                    <a href="views/places-view.html#places-view" data-icon="info">Places</a>
+                    <a href="views/wines-view.html#listview-templates" data-icon="bookmarks">Wines</a>
+                    <a href="views/stores-view.html#stores-view" data-icon="organize">Stores</a>
+                    <a href="views/search-view.html#search-view" data-icon="search">Search</a>
                 </div>
             </footer>
         </div>
-
-        <script id="place-template" type="text/x-kendo-template">
-            <div>
-                <h2>#: Name #</h2>
-                <span>located at: (#:Latitude#,#:Longitude#)</span>
-                <div>#: Description#</div>
-            </div>
+        
+        <script id="wine-template" type="text/x-kendo-template">
+            <li>
+                <div>
+                    <h3>#:name# </h3>
+                    <p>Price: #:price#$</p>
+                    <p>Type: #:type#</p>
+                </div><img src="" data-bind="attr: { src: image }" />
+            </li>
         </script>
-    </body>
+        
+        <script id="store-template" type="text/x-kendo-template">
+             <li>
+                <div>
+                    <h3>#:name# </h3>
+                </div>
+            </li>
+        </script>
+
+<style>
+
+</style>
+</body>
 </html>
